@@ -1,7 +1,7 @@
 Hash: 4395fd92d4570f9ff7ee
 Time: Xms
                      Asset       Size                   Chunks             Chunk Names
-chunk-containing-__a_js.js  461 bytes  chunk-containing-__a_js  [emitted]  
+chunk-containing-__a_js.js  458 bytes  chunk-containing-__a_js  [emitted]  
 chunk-containing-__b_js.js  173 bytes  chunk-containing-__b_js  [emitted]  
                   entry.js   7.14 KiB                    entry  [emitted]  entry
    [0] ./modules/b.js 22 bytes {chunk-containing-__b_js} [built]

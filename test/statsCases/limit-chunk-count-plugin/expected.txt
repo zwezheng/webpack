@@ -3,7 +3,7 @@ Child
     Hash: 0bcb77c121105f5554b0
     Time: Xms
         Asset      Size  Chunks             Chunk Names
-    bundle.js  3.79 KiB       0  [emitted]  main
+    bundle.js  3.91 KiB       0  [emitted]  main
     chunk    {0} bundle.js (main) 191 bytes [entry] [rendered]
         [0] ./index.js 73 bytes {0} [built]
         [1] ./a.js 22 bytes {0} [built]
@@ -15,7 +15,7 @@ Child
     Hash: ab68321fd63b5c89a52e
     Time: Xms
           Asset       Size  Chunks             Chunk Names
-    0.bundle.js  941 bytes       0  [emitted]  
+    0.bundle.js  935 bytes       0  [emitted]  
       bundle.js   7.12 KiB       1  [emitted]  main
     chunk    {0} 0.bundle.js 118 bytes {1} [rendered]
         [1] ./a.js 22 bytes {0} [built]
@@ -29,7 +29,7 @@ Child
     Hash: 03de2ce08eb5c10082da
     Time: Xms
           Asset       Size  Chunks             Chunk Names
-    0.bundle.js  794 bytes       0  [emitted]  
+    0.bundle.js  788 bytes       0  [emitted]  
     1.bundle.js  232 bytes       1  [emitted]  
       bundle.js   7.12 KiB       2  [emitted]  main
     chunk    {0} 0.bundle.js 74 bytes {2} [rendered]
@@ -47,7 +47,7 @@ Child
           Asset       Size  Chunks             Chunk Names
     0.bundle.js  232 bytes       0  [emitted]  
     1.bundle.js  254 bytes       1  [emitted]  
-    2.bundle.js  623 bytes       2  [emitted]  
+    2.bundle.js  617 bytes       2  [emitted]  
       bundle.js   7.11 KiB       3  [emitted]  main
     chunk    {0} 0.bundle.js 44 bytes {2} {3} [rendered]
         [2] ./b.js 22 bytes {0} [built]
