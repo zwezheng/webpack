@@ -19,11 +19,10 @@ module.exports = {
 		__filename: false
 	},
 	optimization: {
-		minimize: false
-	},
-	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({
+		minimize: false,
+		initialCommonsChunk: {
+			minSize: 1,
 			name: "common"
-		})
-	]
+		}
+	}
 };

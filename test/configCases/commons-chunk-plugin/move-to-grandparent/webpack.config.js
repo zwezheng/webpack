@@ -1,5 +1,3 @@
-var CommonsChunkPlugin = require("../../../../lib/optimize/CommonsChunkPlugin");
-
 module.exports = {
 	entry: {
 		main: "./index",
@@ -8,12 +6,12 @@ module.exports = {
 	output: {
 		filename: "[name].js"
 	},
-	plugins: [
-		new CommonsChunkPlugin({
-			name: "main",
-			minChunks: 2,
-			children: true,
-			deepChildren: true,
-		})
-	]
+	optimization: {
+		asyncCommonsChunk: {
+			minSize: 1
+		},
+		initialCommonsChunk: {
+			minSize: 1
+		}
+	}
 };

@@ -1342,6 +1342,23 @@
                   "description": "Specify the maximum number of requests that should occur at a split points (when on the limit bigger chunks are preferred)",
                   "type": "number",
                   "minimum": 0
+                },
+                "name": {
+                  "description": "The name for the commons chunks",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    {
+                      "description": "A function to decide for a chunk name by module and chunks",
+                      "instanceof": "Function"
+                    }
+                  ]
                 }
               }
             }
@@ -1366,6 +1383,23 @@
                   "description": "Specify the maximum number of requests that should occur at startup",
                   "type": "number",
                   "minimum": 0
+                },
+                "name": {
+                  "description": "The name for the initial commons chunks",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    {
+                      "description": "A function to decide for a chunk name by module and chunks",
+                      "instanceof": "Function"
+                    }
+                  ]
                 }
               }
             }
