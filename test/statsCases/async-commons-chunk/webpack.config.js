@@ -1,14 +1,11 @@
-var webpack = require("../../../");
-
 module.exports = {
 	mode: "production",
 	entry: "./",
-	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "main",
-			async: true
-		})
-	],
+	optimization: {
+		asyncCommonsChunks: {
+			minSize: 1
+		}
+	},
 	stats: {
 		hash: false,
 		timings: false,

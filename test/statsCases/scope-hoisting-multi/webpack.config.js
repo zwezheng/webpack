@@ -1,4 +1,3 @@
-var webpack = require("../../../");
 module.exports = [
 	{
 		mode: "production",
@@ -12,14 +11,12 @@ module.exports = [
 			filename: "[name].js"
 		},
 		optimization: {
-			concatenateModules: false
+			concatenateModules: false,
+			initialCommonsChunks: {
+				minSize: 1,
+				name: "vendor"
+			}
 		},
-		plugins: [
-			new webpack.optimize.CommonsChunkPlugin({
-				name: "vendor",
-				minChunks: Infinity
-			})
-		],
 		stats: {
 			assets: false
 		}
@@ -35,12 +32,12 @@ module.exports = [
 		output: {
 			filename: "[name].js"
 		},
-		plugins: [
-			new webpack.optimize.CommonsChunkPlugin({
-				name: "vendor",
-				minChunks: Infinity
-			})
-		],
+		optimization: {
+			initialCommonsChunks: {
+				minSize: 1,
+				name: "vendor"
+			}
+		},
 		stats: {
 			assets: false,
 			optimizationBailout: true
