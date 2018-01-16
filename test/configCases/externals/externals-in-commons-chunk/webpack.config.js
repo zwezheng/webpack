@@ -1,4 +1,3 @@
-var webpack = require("../../../../");
 module.exports = {
 	entry: {
 		main: "./index",
@@ -20,7 +19,7 @@ module.exports = {
 	},
 	optimization: {
 		minimize: false,
-		initialCommonsChunk: {
+		initialCommonsChunks: {
 			minSize: 1,
 			name: "common"
 		}
