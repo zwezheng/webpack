@@ -9,7 +9,7 @@ module.exports = {
 		filename: "[name].js"
 	},
 	optimization: {
-		initialCommonsChunk: {
+		initialCommonsChunks: {
 			minSize: 1,
 			name: "vendor"
 		}

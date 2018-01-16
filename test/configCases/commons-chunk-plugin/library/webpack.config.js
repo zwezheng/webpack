@@ -10,7 +10,7 @@ module.exports = {
 	},
 	externals: ["external0", "external1", "external2", "fs", "path"],
 	optimization: {
-		initialCommonsChunk: {
+		initialCommonsChunks: {
 			minSize: 1,
 			name: "vendor"
 		}

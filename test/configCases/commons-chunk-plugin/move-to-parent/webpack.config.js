@@ -7,7 +7,7 @@ module.exports = {
 		filename: "[name].js"
 	},
 	optimization: {
-		asyncCommonsChunk: {
+		asyncCommonsChunks: {
 			minSize: 1,
 			name: "bundle0"
 		}
