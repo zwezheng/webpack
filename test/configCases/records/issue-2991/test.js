@@ -25,7 +25,7 @@ it("should write relative paths to records", function() {
     "byName": {
       "main": 0
     },
-    "byBlocks": {},
+    "bySource": {},
     "usedIds": {
       "0": 0
     }
