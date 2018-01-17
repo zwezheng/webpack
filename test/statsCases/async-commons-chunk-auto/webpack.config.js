@@ -10,7 +10,7 @@ const stats = {
 };
 module.exports = [
 	{
-		name: "async-only",
+		name: "disabled",
 		mode: "production",
 		entry: {
 			main: "./",
@@ -19,12 +19,48 @@ module.exports = [
 			c: "./c"
 		},
 		output: {
-			filename: "async-only/[name].js"
+			filename: "disabled/[name].js"
+		},
+		optimization: {
+			asyncCommonsChunks: false,
+			asyncVendorsChunks: false
+		},
+		stats
+	},
+	{
+		name: "default",
+		mode: "production",
+		entry: {
+			main: "./",
+			a: "./a",
+			b: "./b",
+			c: "./c"
+		},
+		output: {
+			filename: "default/[name].js"
 		},
 		optimization: {
 			asyncCommonsChunks: {
 				minSize: 1 // enforce all
 			}
+		},
+		stats
+	},
+	{
+		name: "async-vendors",
+		mode: "production",
+		entry: {
+			main: "./",
+			a: "./a",
+			b: "./b",
+			c: "./c"
+		},
+		output: {
+			filename: "async-vendors/[name].js"
+		},
+		optimization: {
+			asyncCommonsChunks: false,
+			asyncVendorsChunks: true
 		},
 		stats
 	},
@@ -45,7 +81,7 @@ module.exports = [
 			initialCommonsChunks: {
 				minSize: 1 // enforce all
 			},
-			initialVendorsChunk: true
+			initialVendorsChunks: true
 		},
 		stats
 	},
@@ -66,7 +102,33 @@ module.exports = [
 			asyncCommonsChunks: {
 				minSize: 1 // enforce all
 			},
-			initialVendorsChunk: {
+			initialVendorsChunks: {
+				"libs": name => {
+					const match = /[\\/](xyz|x)\.js/.exec(name);
+					if(match) return "libs-" + match[1];
+				},
+				vendors: path.resolve(__dirname, "node_modules")
+			}
+		},
+		stats
+	},
+	{
+		name: "all",
+		mode: "production",
+		entry: {
+			main: "./",
+			a: "./a",
+			b: "./b",
+			c: "./c"
+		},
+		output: {
+			filename: "all/[name].js"
+		},
+		optimization: {
+			asyncCommonsChunks: {
+				minSize: 1 // enforce all
+			},
+			initialVendorsChunks: {
 				"libs": name => {
 					const match = /[\\/](xyz|x)\.js/.exec(name);
 					if(match) return "libs-" + match[1];

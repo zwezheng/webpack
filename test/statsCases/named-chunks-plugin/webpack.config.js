@@ -1,4 +1,3 @@
-var CommonsChunkPlugin = require("../../../lib/optimize/CommonsChunkPlugin");
 var NamedChunksPlugin = require("../../../lib/NamedChunksPlugin");
 var NamedModulesPlugin = require("../../../lib/NamedModulesPlugin");
 
@@ -8,11 +7,13 @@ module.exports = {
 		"entry": "./entry",
 		"vendor": ["./modules/a", "./modules/b"],
 	},
+	optimization: {
+		initialCommonsChunks: {
+			minSize: 1,
+			name: "vendor"
+		}
+	},
 	plugins: [
-		new CommonsChunkPlugin({
-			names: ["vendor", "manifest"],
-			minChunks: Infinity
-		}),
 		new NamedChunksPlugin(),
 		new NamedModulesPlugin(),
 	]

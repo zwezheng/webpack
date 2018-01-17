@@ -1113,6 +1113,80 @@
           }
         }
       ]
+    },
+    "commons-chunks": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "minSize": {
+              "description": "Specify the minimum size of commons chunks at which they are created",
+              "type": "number",
+              "minimum": 0
+            },
+            "maxRequests": {
+              "description": "Specify the maximum number of requests that should occur at a split points resp. entrypoints (when on the limit, bigger chunks are preferred)",
+              "type": "number",
+              "minimum": 0
+            },
+            "name": {
+              "description": "The name for the commons chunks (chunks are merged when given non-unique names)",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "enum": [
+                    true
+                  ]
+                },
+                {
+                  "description": "A function to decide for a chunk name by module and chunks",
+                  "instanceof": "Function"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "vendors-chunks": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "description": "An object of multiple vendors chunks, each keys specifies the name and the value is a absolute path prefix, regular expression or matcher function",
+            "oneOf": [
+              {
+                "instanceof": "RegExp"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "instanceof": "Function"
+              }
+            ]
+          }
+        },
+        {
+          "instanceof": "RegExp"
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
     }
   },
   "properties": {
@@ -1325,115 +1399,33 @@
         },
         "asyncCommonsChunks": {
           "description": "Automatically deduplicate modules in on-demand chunks by creating additional async-loaded shared chunks",
-          "oneOf": [
+          "anyOf": [
             {
-              "type": "boolean"
-            },
+              "$ref": "#/definitions/commons-chunks"
+            }
+          ]
+        },
+        "asyncVendorsChunks": {
+          "description": "Automatically extract vendor modules from on-demand chunks into separate chunks (loaded in parallel) assuming they change less often",
+          "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "minSize": {
-                  "description": "Specify the minimum size of commons chunks at which they are created",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "maxRequests": {
-                  "description": "Specify the maximum number of requests that should occur at a split points (when on the limit bigger chunks are preferred)",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "name": {
-                  "description": "The name for the commons chunks",
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "enum": [
-                        true
-                      ]
-                    },
-                    {
-                      "description": "A function to decide for a chunk name by module and chunks",
-                      "instanceof": "Function"
-                    }
-                  ]
-                }
-              }
+              "$ref": "#/definitions/vendors-chunks"
             }
           ]
         },
         "initialCommonsChunks": {
           "description": "Automatically deduplicate modules in initial chunks by creating additional initial-loaded shared chunks (These chunks need to be added to the HTML)",
-          "oneOf": [
+          "anyOf": [
             {
-              "type": "boolean"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "minSize": {
-                  "description": "Specify the minimum size of commons chunks at which they are created (when on the limit bigger chunks are preferred)",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "maxRequests": {
-                  "description": "Specify the maximum number of requests that should occur at startup",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "name": {
-                  "description": "The name for the initial commons chunks",
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "enum": [
-                        true
-                      ]
-                    },
-                    {
-                      "description": "A function to decide for a chunk name by module and chunks",
-                      "instanceof": "Function"
-                    }
-                  ]
-                }
-              }
+              "$ref": "#/definitions/commons-chunks"
             }
           ]
         },
-        "initialVendorsChunk": {
-          "description": "Automatically extract vendor modules (inside of node_modules) into separate chunk assuming they change less often ",
-          "oneOf": [
+        "initialVendorsChunks": {
+          "description": "Automatically extract vendor modules from initial chunks into separate chunks (loaded in parallel) assuming they change less often (These chunks need to be added to the HTML)",
+          "anyOf": [
             {
-              "type": "boolean"
-            },
-            {
-              "type": "object",
-              "additionalProperties": {
-                "description": "An object of multiple vendors chunks, each keys specifies the name and the value is a absolute path prefix, regular expression or matcher function",
-                "oneOf": [
-                  {
-                    "instanceof": "RegExp"
-                  },
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "instanceof": "Function"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "string",
-              "minLength": 1
-            },
-            {
-              "instanceof": "Function"
+              "$ref": "#/definitions/vendors-chunks"
             }
           ]
         },
