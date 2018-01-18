@@ -5,7 +5,7 @@ module.exports = {
 		hints: false
 	},
 	optimization: {
-		asyncCommonsChunks: {
+		splitChunks: {
 			minSize: 1,
 			name: true
 		}

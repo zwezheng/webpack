@@ -19,7 +19,7 @@ module.exports = {
 	},
 	optimization: {
 		minimize: false,
-		initialCommonsChunks: {
+		splitChunks: {
 			minSize: 1,
 			name: "common"
 		}

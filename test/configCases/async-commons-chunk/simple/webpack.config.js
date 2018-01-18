@@ -1,8 +1,6 @@
-var webpack = require("../../../../");
-
 module.exports = {
 	optimization: {
-		asyncCommonsChunks: {
+		splitChunks: {
 			minSize: 1
 		}
 	}

@@ -1113,80 +1113,6 @@
           }
         }
       ]
-    },
-    "commons-chunks": {
-      "oneOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "minSize": {
-              "description": "Specify the minimum size of commons chunks at which they are created",
-              "type": "number",
-              "minimum": 0
-            },
-            "maxRequests": {
-              "description": "Specify the maximum number of requests that should occur at a split points resp. entrypoints (when on the limit, bigger chunks are preferred)",
-              "type": "number",
-              "minimum": 0
-            },
-            "name": {
-              "description": "The name for the commons chunks (chunks are merged when given non-unique names)",
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "enum": [
-                    true
-                  ]
-                },
-                {
-                  "description": "A function to decide for a chunk name by module and chunks",
-                  "instanceof": "Function"
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "vendors-chunks": {
-      "oneOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "type": "object",
-          "additionalProperties": {
-            "description": "An object of multiple vendors chunks, each keys specifies the name and the value is a absolute path prefix, regular expression or matcher function",
-            "oneOf": [
-              {
-                "instanceof": "RegExp"
-              },
-              {
-                "type": "string"
-              },
-              {
-                "instanceof": "Function"
-              }
-            ]
-          }
-        },
-        {
-          "instanceof": "RegExp"
-        },
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "instanceof": "Function"
-        }
-      ]
     }
   },
   "properties": {
@@ -1397,35 +1323,125 @@
           "description": "Concatenate modules when possible to generate less modules, more efficient code and enable more optimizations by the minimizer",
           "type": "boolean"
         },
-        "asyncCommonsChunks": {
-          "description": "Automatically deduplicate modules in on-demand chunks by creating additional async-loaded shared chunks",
-          "anyOf": [
+        "splitChunks": {
+          "description": "Optimize duplication and caching by splitting chunks by shared modules and cache group",
+          "oneOf": [
             {
-              "$ref": "#/definitions/commons-chunks"
-            }
-          ]
-        },
-        "asyncVendorsChunks": {
-          "description": "Automatically extract vendor modules from on-demand chunks into separate chunks (loaded in parallel) assuming they change less often",
-          "anyOf": [
+              "enum": [
+                false
+              ]
+            },
             {
-              "$ref": "#/definitions/vendors-chunks"
-            }
-          ]
-        },
-        "initialCommonsChunks": {
-          "description": "Automatically deduplicate modules in initial chunks by creating additional initial-loaded shared chunks (These chunks need to be added to the HTML)",
-          "anyOf": [
-            {
-              "$ref": "#/definitions/commons-chunks"
-            }
-          ]
-        },
-        "initialVendorsChunks": {
-          "description": "Automatically extract vendor modules from initial chunks into separate chunks (loaded in parallel) assuming they change less often (These chunks need to be added to the HTML)",
-          "anyOf": [
-            {
-              "$ref": "#/definitions/vendors-chunks"
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "minSize": {
+                  "description": "Minimal size for created chunk",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "includeInitialChunks": {
+                  "description": "Include initial chunks (This requires adding these chunks to the HTML)",
+                  "type": "boolean"
+                },
+                "minChunks": {
+                  "description": "Minimum number of times a module has to be duplicated until it's considered for splitting",
+                  "type": "number",
+                  "minimum": 2
+                },
+                "maxAsyncRequests": {
+                  "description": "Maximum number of requests which are accepted for on-demand loading",
+                  "type": "number",
+                  "minimum": 1
+                },
+                "maxInitialRequests": {
+                  "description": "Maximum number of initial chunks which are accepted for an entry point",
+                  "type": "number",
+                  "minimum": 1
+                },
+                "name": {
+                  "description": "Give chunks created a name (chunks with equal name are merged)",
+                  "oneOf": [
+                    {
+                      "enum": [
+                        true
+                      ]
+                    },
+                    {
+                      "instanceof": "Function"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "cacheGroups": {
+                  "description": "Assign modules to a cache group (modules from different cache groups are tried to keep in separate chunks)",
+                  "oneOf": [
+                    {
+                      "instanceof": "Function"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "instanceof": "RegExp"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": {
+                        "description": "Configuration for a cache group",
+                        "oneOf": [
+                          {
+                            "instanceof": "Function"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "instanceof": "RegExp"
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "test": {
+                                "description": "Assign modules to a cache group",
+                                "oneOf": [
+                                  {
+                                    "instanceof": "Function"
+                                  },
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "instanceof": "RegExp"
+                                  }
+                                ]
+                              },
+                              "enforce": {
+                                "description": "Include minimum size and maximum requests and always create chunks for this cache group",
+                                "type": "boolean"
+                              },
+                              "name": {
+                                "description": "Give chunks for this cache group a name (chunks with equal name are merged)",
+                                "oneOf": [
+                                  {
+                                    "instanceof": "Function"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
             }
           ]
         },

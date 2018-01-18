@@ -22,8 +22,7 @@ module.exports = [
 			filename: "disabled/[name].js"
 		},
 		optimization: {
-			asyncCommonsChunks: false,
-			asyncVendorsChunks: false
+			splitChunks: false
 		},
 		stats
 	},
@@ -40,7 +39,7 @@ module.exports = [
 			filename: "default/[name].js"
 		},
 		optimization: {
-			asyncCommonsChunks: {
+			splitChunks: {
 				minSize: 1 // enforce all
 			}
 		},
@@ -59,8 +58,15 @@ module.exports = [
 			filename: "async-vendors/[name].js"
 		},
 		optimization: {
-			asyncCommonsChunks: false,
-			asyncVendorsChunks: true
+			splitChunks: {
+				minChunks: Infinity,
+				cacheGroups: {
+					vendors: {
+						test: /[\\/]node_modules[\\/]/,
+						enforce: true
+					}
+				}
+			}
 		},
 		stats
 	},
@@ -77,11 +83,16 @@ module.exports = [
 			filename: "vendors1/[name].js"
 		},
 		optimization: {
-			asyncCommonsChunks: false,
-			initialCommonsChunks: {
-				minSize: 1 // enforce all
-			},
-			initialVendorsChunks: true
+			splitChunks: {
+				includeInitialChunks: true,
+				minSize: 1,
+				cacheGroups: {
+					vendors: {
+						test: /[\\/]node_modules[\\/]/,
+						enforce: true
+					}
+				}
+			}
 		},
 		stats
 	},
@@ -99,16 +110,20 @@ module.exports = [
 			filename: "async-and-vendor/[name].js"
 		},
 		optimization: {
-			asyncCommonsChunks: {
-				minSize: 1 // enforce all
-			},
-			initialVendorsChunks: {
-				"libs": name => {
-					const match = /[\\/](xyz|x)\.js/.exec(name);
-					if(match) return "libs-" + match[1];
-				},
-				vendors: path.resolve(__dirname, "node_modules")
-			}
+			splitChunks: {
+				minSize: 1, // enforce all
+				cacheGroups: {
+					"libs": module => {
+						if(!module.nameForCondition) return;
+						const name = module.nameForCondition();
+						const match = /[\\/](xyz|x)\.js/.exec(name);
+						if(match) return {
+							name: "libs-" + match[1],
+							enforce: true
+						};
+					},
+					vendors: path.resolve(__dirname, "node_modules")
+				}
 		},
 		stats
 	},
@@ -125,15 +140,11 @@ module.exports = [
 			filename: "all/[name].js"
 		},
 		optimization: {
-			asyncCommonsChunks: {
-				minSize: 1 // enforce all
-			},
-			initialVendorsChunks: {
-				"libs": name => {
-					const match = /[\\/](xyz|x)\.js/.exec(name);
-					if(match) return "libs-" + match[1];
-				},
-				vendors: path.resolve(__dirname, "node_modules")
+			splitChunks: {
+				minSize: 1, // enforce all
+				cacheGroups: {
+					vendors: path.resolve(__dirname, "node_modules")
+				}
 			}
 		},
 		stats

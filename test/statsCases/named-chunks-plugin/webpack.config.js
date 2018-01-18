@@ -8,7 +8,7 @@ module.exports = {
 		"vendor": ["./modules/a", "./modules/b"],
 	},
 	optimization: {
-		initialCommonsChunks: {
+		splitChunks: {
 			minSize: 1,
 			name: "vendor"
 		}
