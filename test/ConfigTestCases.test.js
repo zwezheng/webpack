@@ -53,7 +53,6 @@ describe("ConfigTestCases", () => {
 						if(!options.output.path) options.output.path = outputDirectory;
 						if(typeof options.output.pathinfo === "undefined") options.output.pathinfo = true;
 						if(!options.output.filename) options.output.filename = "bundle" + idx + ".js";
-						if(!options.output.chunkFilename) options.output.chunkFilename = "[id].bundle" + idx + ".js";
 					});
 					let testConfig = {
 						findBundle: function(i, options) {

@@ -229,23 +229,23 @@ Child vendors1:
     chunk    {7} vendors1/main.js (main) 45 bytes >{1}< >{0}< >{3}< >{4}< >{6}< >{5}< [entry] [rendered]
         > ./ main
         [8] ./index.js 45 bytes {7} [built]
-    chunk    {8} vendors1/a.js (a) 122 bytes ={12}= ={13}= ={15}= >{2}< [initial] [rendered]
+    chunk    {8} vendors1/a.js (a) 122 bytes ={12}= ={13}= ={15}= >{2}< [entry] [rendered]
         > ./a a
         [7] ./a.js + 1 modules 122 bytes {3} {8} [built]
             | ./a.js 87 bytes [built]
             | ./e.js 20 bytes [built]
-    chunk    {9} vendors1/b.js (b) 92 bytes ={12}= ={13}= ={14}= [initial] [rendered]
+    chunk    {9} vendors1/b.js (b) 92 bytes ={12}= ={13}= ={14}= [entry] [rendered]
         > ./b b
         [0] ./d.js 20 bytes {3} {4} {5} {9} {10} {15} [built]
         [5] ./b.js 72 bytes {4} {9} [built]
-    chunk   {10} vendors1/c.js (c) 92 bytes ={11}= ={13}= ={14}= [initial] [rendered]
+    chunk   {10} vendors1/c.js (c) 92 bytes ={11}= ={13}= ={14}= [entry] [rendered]
         > ./c c
         [0] ./d.js 20 bytes {3} {4} {5} {9} {10} {15} [built]
         [6] ./c.js 72 bytes {5} {10} [built]
-    chunk   {11} vendors1/11.js 20 bytes ={13}= ={14}= ={10}= [entry] [rendered] vendors chunk
+    chunk   {11} vendors1/11.js 20 bytes ={13}= ={14}= ={10}= [initial] [rendered] vendors chunk
         > ./c c
         [4] ./node_modules/z.js 20 bytes {6} {11} [built]
-    chunk   {12} vendors1/12.js 20 bytes ={13}= ={14}= ={9}= ={15}= ={8}= >{2}< [entry] [rendered] vendors chunk
+    chunk   {12} vendors1/12.js 20 bytes ={13}= ={14}= ={9}= ={15}= ={8}= >{2}< [initial] [rendered] vendors chunk
         > ./b b
         > ./a a
         [3] ./node_modules/y.js 20 bytes {1} {12} [built]
@@ -307,23 +307,23 @@ Child async-and-vendor:
     chunk    {9} async-and-vendor/main.js (main) 45 bytes >{2}< >{0}< >{1}< >{5}< >{8}< >{4}< >{7}< >{6}< [entry] [rendered]
         > ./ main
         [8] ./index.js 45 bytes {9} [built]
-    chunk   {10} async-and-vendor/a.js (a) 142 bytes ={13}= ={14}= >{1}< >{3}< [initial] [rendered]
+    chunk   {10} async-and-vendor/a.js (a) 142 bytes ={13}= ={14}= >{1}< >{3}< [entry] [rendered]
         > ./a a
         [0] ./d.js 20 bytes {5} {6} {8} {10} {11} {12} [built]
         [7] ./a.js + 1 modules 122 bytes {4} {10} [built]
             | ./a.js 87 bytes [built]
             | ./e.js 20 bytes [built]
-    chunk   {11} async-and-vendor/b.js (b) 112 bytes ={13}= ={14}= [initial] [rendered]
+    chunk   {11} async-and-vendor/b.js (b) 112 bytes ={13}= ={14}= [entry] [rendered]
         > ./b b
         [0] ./d.js 20 bytes {5} {6} {8} {10} {11} {12} [built]
         [2] ./f.js 20 bytes {1} {11} {12} [built]
         [5] ./b.js 72 bytes {5} {11} [built]
-    chunk   {12} async-and-vendor/c.js (c) 112 bytes ={13}= ={14}= [initial] [rendered]
+    chunk   {12} async-and-vendor/c.js (c) 112 bytes ={13}= ={14}= [entry] [rendered]
         > ./c c
         [0] ./d.js 20 bytes {5} {6} {8} {10} {11} {12} [built]
         [2] ./f.js 20 bytes {1} {11} {12} [built]
         [6] ./c.js 72 bytes {6} {12} [built]
-    chunk   {13} async-and-vendor/vendors.js (vendors) 61 bytes ={14}= ={11}= ={10}= ={12}= >{1}< >{3}< [entry] [rendered] vendors chunk vendors
+    chunk   {13} async-and-vendor/vendors.js (vendors) 61 bytes ={14}= ={11}= ={10}= ={12}= >{1}< >{3}< [initial] [rendered] vendors chunk vendors
         > ./b b
         > ./a a
         > ./c c
@@ -381,23 +381,23 @@ Child all:
     chunk    {9} all/main.js (main) 45 bytes >{2}< >{0}< >{1}< >{5}< >{8}< >{4}< >{7}< >{6}< [entry] [rendered]
         > ./ main
         [8] ./index.js 45 bytes {9} [built]
-    chunk   {10} all/a.js (a) 142 bytes ={13}= ={14}= >{1}< >{3}< [initial] [rendered]
+    chunk   {10} all/a.js (a) 142 bytes ={13}= ={14}= >{1}< >{3}< [entry] [rendered]
         > ./a a
         [0] ./d.js 20 bytes {5} {6} {8} {10} {11} {12} [built]
         [7] ./a.js + 1 modules 122 bytes {4} {10} [built]
             | ./a.js 87 bytes [built]
             | ./e.js 20 bytes [built]
-    chunk   {11} all/b.js (b) 112 bytes ={13}= ={14}= [initial] [rendered]
+    chunk   {11} all/b.js (b) 112 bytes ={13}= ={14}= [entry] [rendered]
         > ./b b
         [0] ./d.js 20 bytes {5} {6} {8} {10} {11} {12} [built]
         [2] ./f.js 20 bytes {1} {11} {12} [built]
         [5] ./b.js 72 bytes {5} {11} [built]
-    chunk   {12} all/c.js (c) 112 bytes ={13}= ={14}= [initial] [rendered]
+    chunk   {12} all/c.js (c) 112 bytes ={13}= ={14}= [entry] [rendered]
         > ./c c
         [0] ./d.js 20 bytes {5} {6} {8} {10} {11} {12} [built]
         [2] ./f.js 20 bytes {1} {11} {12} [built]
         [6] ./c.js 72 bytes {6} {12} [built]
-    chunk   {13} all/vendors.js (vendors) 40 bytes ={14}= ={11}= ={10}= ={12}= >{1}< >{3}< [entry] [rendered] vendors chunk vendors
+    chunk   {13} all/vendors.js (vendors) 40 bytes ={14}= ={11}= ={10}= ={12}= >{1}< >{3}< [initial] [rendered] vendors chunk vendors
         > ./b b
         > ./a a
         > ./c c
