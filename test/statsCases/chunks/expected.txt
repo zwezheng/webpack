@@ -1,10 +1,10 @@
-Hash: 1631e5af1d1f0d584d88
+Hash: 7870601bc1a1a4f9c4c1
 Time: Xms
       Asset       Size  Chunks             Chunk Names
-0.bundle.js  152 bytes       0  [emitted]
-1.bundle.js  289 bytes       1  [emitted]
-  bundle.js   6.96 KiB       2  [emitted]  main
-3.bundle.js  227 bytes       3  [emitted]
+0.bundle.js  152 bytes       0  [emitted]  
+1.bundle.js  289 bytes       1  [emitted]  
+  bundle.js   6.95 KiB       2  [emitted]  main
+3.bundle.js  227 bytes       3  [emitted]  
 Entrypoint main = bundle.js
 chunk    {0} 0.bundle.js 22 bytes <{2}> [rendered]
     > ./b [4] ./index.js 2:0-16
@@ -17,6 +17,7 @@ chunk    {1} 1.bundle.js 54 bytes <{2}> >{3}< [rendered]
         amd require ./c [4] ./index.js 3:0-16
         [4] Xms -> factory:Xms building:Xms = Xms
 chunk    {2} bundle.js (main) 73 bytes >{0}< >{1}< [entry] [rendered]
+    > ./index main
     [4] ./index.js 51 bytes {2} [built]
         single entry ./index  main
         factory:Xms building:Xms = Xms

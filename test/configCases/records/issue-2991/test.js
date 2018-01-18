@@ -26,9 +26,9 @@ it("should write relative paths to records", function() {
       "main": 0
     },
     "bySource": {},
-    "usedIds": {
-      "0": 0
-    }
+    "usedIds": [
+      0
+    ]
   }
 }`);
 });

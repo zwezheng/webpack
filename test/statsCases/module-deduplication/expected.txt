@@ -1,10 +1,10 @@
 Asset       Size  Chunks             Chunk Names
- 0.js  730 bytes    0, 5  [emitted]
- 1.js  730 bytes    1, 4  [emitted]
- 2.js  730 bytes    2, 3  [emitted]
- 3.js  661 bytes       3  [emitted]
- 4.js  661 bytes       4  [emitted]
- 5.js  661 bytes       5  [emitted]
+ 0.js  730 bytes    0, 5  [emitted]  
+ 1.js  730 bytes    1, 4  [emitted]  
+ 2.js  730 bytes    2, 3  [emitted]  
+ 3.js  661 bytes       3  [emitted]  
+ 4.js  661 bytes       4  [emitted]  
+ 5.js  661 bytes       5  [emitted]  
 e1.js   8.07 KiB       6  [emitted]  e1
 e2.js    8.1 KiB       7  [emitted]  e2
 e3.js   8.12 KiB       8  [emitted]  e3

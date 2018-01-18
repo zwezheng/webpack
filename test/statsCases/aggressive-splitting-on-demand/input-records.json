@@ -32,35 +32,48 @@
   "aggressiveSplits": [
     {
       "modules": [
-        "f.js",
-        "g.js"
+        "x.js",
+        "y.js"
       ],
-      "hash": "c659704b2f31cae80013194b956d16ba",
+      "size": 1798,
+      "hash": "xxx",
       "id": 0
     },
     {
       "modules": [
-        "d.js",
-        "e.js"
+        "b.js",
+        "d.js"
       ],
-      "hash": "9799e4f21dc14d39e2fe3e51c13dd5a6",
-      "id": 1
+      "size": 1798,
+      "hash": "ba1a8dd27d611254d4950a3f52eb4b10",
+      "id": 0
     },
     {
       "modules": [
-        "j.js",
-        "k.js"
+        "f.js",
+        "g.js"
       ],
-      "hash": "7067a3cecd9faa0aea363a87183b6d93",
-      "id": 3
+      "size": 1800,
+      "hash": "81950df8ced1664c8037f845fc519717",
+      "id": 2
     },
     {
       "modules": [
         "h.js",
         "i.js"
       ],
-      "hash": "a16aa76f2b6bd21df3478eb6cec29d05",
-      "id": 4
+      "size": 1798,
+      "hash": "2a7cf3b38962fac54bb997c2ccbd71d6",
+      "id": 3
+    },
+    {
+      "modules": [
+        "c.js",
+        "d.js"
+      ],
+      "size": 1798,
+      "hash": "xxx",
+      "id": 8
     }
   ]
 }
