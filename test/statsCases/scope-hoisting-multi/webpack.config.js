@@ -2,7 +2,6 @@ module.exports = [
 	{
 		mode: "production",
 		entry: {
-			vendor: "./vendor",
 			first: "./first",
 			second: "./second"
 		},
@@ -13,8 +12,14 @@ module.exports = [
 		optimization: {
 			concatenateModules: false,
 			splitChunks: {
-				minSize: 1,
-				name: "vendor"
+				cacheGroups: {
+					vendor: {
+						test: /vendor/,
+						chunks: "initial",
+						name: "vendor",
+						enforce: true
+					}
+				}
 			}
 		},
 		stats: {
@@ -24,7 +29,6 @@ module.exports = [
 	{
 		mode: "production",
 		entry: {
-			vendor: "./vendor",
 			first: "./first",
 			second: "./second"
 		},
@@ -34,8 +38,14 @@ module.exports = [
 		},
 		optimization: {
 			splitChunks: {
-				minSize: 1,
-				name: "vendor"
+				cacheGroups: {
+					vendor: {
+						test: /vendor/,
+						chunks: "initial",
+						name: "vendor",
+						enforce: true
+					}
+				}
 			}
 		},
 		stats: {

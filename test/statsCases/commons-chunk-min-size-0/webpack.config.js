@@ -4,8 +4,12 @@ module.exports = {
 		"entry-1": "./entry-1"
 	},
 	optimization: {
-		initialVendorsChunks: {
-			"vendor-1": /modules[\\/][abc]/
+		splitChunks: {
+			minSize: 0,
+			chunks: "all",
+			cacheGroups: {
+				"vendor-1": /modules[\\/][abc]/
+			}
 		}
 	}
 };

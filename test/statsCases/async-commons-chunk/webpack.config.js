@@ -2,8 +2,8 @@ module.exports = {
 	mode: "production",
 	entry: "./",
 	optimization: {
-		asyncCommonsChunks: {
-			minSize: 1
+		splitChunks: {
+			minSize: 0
 		}
 	},
 	stats: {

@@ -4,13 +4,18 @@ var NamedModulesPlugin = require("../../../lib/NamedModulesPlugin");
 module.exports = {
 	mode: "production",
 	entry: {
-		"entry": "./entry",
-		"vendor": ["./modules/a", "./modules/b"],
+		"entry": "./entry"
 	},
 	optimization: {
 		splitChunks: {
-			minSize: 1,
-			name: "vendor"
+			cacheGroups: {
+				vendor: {
+					name: "vendor",
+					test: /modules[\\/][ab]/,
+					chunks: "all",
+					enforce: true
+				}
+			}
 		}
 	},
 	plugins: [

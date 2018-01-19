@@ -1,9 +1,9 @@
-Hash: 0ffa64fb9bd6d9e9dce0
+Hash: d7afa670e5077df305a3
 Time: Xms
-      Asset       Size  Chunks             Chunk Names
- entry-1.js   5.44 KiB       0  [emitted]  entry-1
-vendor-1.js  314 bytes       1  [emitted]  vendor-1
-Entrypoint entry-1 = vendor-1.js entry-1.js
+              Asset       Size  Chunks             Chunk Names
+         entry-1.js   5.44 KiB       0  [emitted]  entry-1
+vendor-1~entry-1.js  314 bytes       1  [emitted]  vendor-1~entry-1
+Entrypoint entry-1 = vendor-1~entry-1.js entry-1.js
    [0] ./entry-1.js 145 bytes {0} [built]
    [1] ./modules/a.js 22 bytes {1} [built]
    [2] ./modules/b.js 22 bytes {1} [built]

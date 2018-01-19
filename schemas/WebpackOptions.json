@@ -1335,19 +1335,23 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
+                "chunks": {
+                  "description": "Select chunks for determining shared modules (defaults to \"async\", \"initial\" and \"all\" requires adding these chunks to the HTML)",
+                  "enum": [
+                    "initial",
+                    "async",
+                    "all"
+                  ]
+                },
                 "minSize": {
                   "description": "Minimal size for created chunk",
                   "type": "number",
                   "minimum": 0
                 },
-                "includeInitialChunks": {
-                  "description": "Include initial chunks (This requires adding these chunks to the HTML)",
-                  "type": "boolean"
-                },
                 "minChunks": {
                   "description": "Minimum number of times a module has to be duplicated until it's considered for splitting",
                   "type": "number",
-                  "minimum": 2
+                  "minimum": 1
                 },
                 "maxAsyncRequests": {
                   "description": "Maximum number of requests which are accepted for on-demand loading",
@@ -1391,7 +1395,7 @@
                       "type": "object",
                       "additionalProperties": {
                         "description": "Configuration for a cache group",
-                        "oneOf": [
+                        "anyOf": [
                           {
                             "instanceof": "Function"
                           },
@@ -1419,13 +1423,46 @@
                                   }
                                 ]
                               },
+                              "chunks": {
+                                "description": "Select chunks for determining cache group content (defaults to \"initial\", \"initial\" and \"all\" requires adding these chunks to the HTML)",
+                                "enum": [
+                                  "initial",
+                                  "async",
+                                  "all"
+                                ]
+                              },
                               "enforce": {
-                                "description": "Include minimum size and maximum requests and always create chunks for this cache group",
+                                "description": "Ignore minimum size, minimum chunks and maximum requests and always create chunks for this cache group",
                                 "type": "boolean"
+                              },
+                              "minSize": {
+                                "description": "Minimal size for created chunk",
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "minChunks": {
+                                "description": "Minimum number of times a module has to be duplicated until it's considered for splitting",
+                                "type": "number",
+                                "minimum": 1
+                              },
+                              "maxAsyncRequests": {
+                                "description": "Maximum number of requests which are accepted for on-demand loading",
+                                "type": "number",
+                                "minimum": 1
+                              },
+                              "maxInitialRequests": {
+                                "description": "Maximum number of initial chunks which are accepted for an entry point",
+                                "type": "number",
+                                "minimum": 1
                               },
                               "name": {
                                 "description": "Give chunks for this cache group a name (chunks with equal name are merged)",
                                 "oneOf": [
+                                  {
+                                    "enum": [
+                                      true
+                                    ]
+                                  },
                                   {
                                     "instanceof": "Function"
                                   },

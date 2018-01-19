@@ -8,8 +8,15 @@ module.exports = [{
 		app: "./entry-1.js"
 	},
 	optimization: {
-		initialVendorsChunks: {
-			"vendor": /constants/
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					name: "vendor",
+					chunks: "initial",
+					enforce: true,
+					test: /constants/
+				}
+			}
 		},
 		namedModules: true
 	}
@@ -22,8 +29,15 @@ module.exports = [{
 		app: "./entry-2.js"
 	},
 	optimization: {
-		initialVendorsChunks: {
-			"vendor": /constants/
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					name: "vendor",
+					chunks: "initial",
+					enforce: true,
+					test: /constants/
+				}
+			}
 		},
 		namedModules: true
 	}

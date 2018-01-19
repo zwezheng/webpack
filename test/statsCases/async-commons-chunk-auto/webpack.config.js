@@ -40,13 +40,13 @@ module.exports = [
 		},
 		optimization: {
 			splitChunks: {
-				minSize: 1 // enforce all
+				minSize: 0 // enforce all
 			}
 		},
 		stats
 	},
 	{
-		name: "async-vendors",
+		name: "vendors",
 		mode: "production",
 		entry: {
 			main: "./",
@@ -55,14 +55,15 @@ module.exports = [
 			c: "./c"
 		},
 		output: {
-			filename: "async-vendors/[name].js"
+			filename: "vendors/[name].js"
 		},
 		optimization: {
 			splitChunks: {
-				minChunks: Infinity,
 				cacheGroups: {
 					vendors: {
 						test: /[\\/]node_modules[\\/]/,
+						chunks: "initial",
+						name: "vendors",
 						enforce: true
 					}
 				}
@@ -71,7 +72,7 @@ module.exports = [
 		stats
 	},
 	{
-		name: "vendors1",
+		name: "multiple-vendors",
 		mode: "production",
 		entry: {
 			main: "./",
@@ -80,38 +81,12 @@ module.exports = [
 			c: "./c"
 		},
 		output: {
-			filename: "vendors1/[name].js"
+			filename: "multiple-vendors/[name].js"
 		},
 		optimization: {
 			splitChunks: {
-				includeInitialChunks: true,
-				minSize: 1,
-				cacheGroups: {
-					vendors: {
-						test: /[\\/]node_modules[\\/]/,
-						enforce: true
-					}
-				}
-			}
-		},
-		stats
-	},
-	{
-		name: "async-and-vendor",
-		mode: "production",
-		entry: {
-			main: "./",
-			a: "./a",
-			b: "./b",
-			c: "./c",
-			vendors: "xy"
-		},
-		output: {
-			filename: "async-and-vendor/[name].js"
-		},
-		optimization: {
-			splitChunks: {
-				minSize: 1, // enforce all
+				minSize: 0, // enforce all
+				chunks: "all",
 				cacheGroups: {
 					"libs": module => {
 						if(!module.nameForCondition) return;
@@ -124,6 +99,7 @@ module.exports = [
 					},
 					vendors: path.resolve(__dirname, "node_modules")
 				}
+			}
 		},
 		stats
 	},
@@ -141,7 +117,8 @@ module.exports = [
 		},
 		optimization: {
 			splitChunks: {
-				minSize: 1, // enforce all
+				minSize: 0, // enforce all
+				chunks: "all",
 				cacheGroups: {
 					vendors: path.resolve(__dirname, "node_modules")
 				}
