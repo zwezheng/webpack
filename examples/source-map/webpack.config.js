@@ -22,7 +22,7 @@ module.exports = [
 		filename: `./[name]-${devtool}.js`,
 	},
 	devtool,
-	plugins: [
-		new webpack.optimize.CommonsChunkPlugin(["manifest"]),
-	],
+	optimization: {
+		runtimeChunk: true
+	}
 }));
