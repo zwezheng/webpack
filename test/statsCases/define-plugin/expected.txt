@@ -3,13 +3,13 @@ Child
     Hash: 6a7976d5377cff9d866c
     Time: Xms
       Asset      Size  Chunks             Chunk Names
-    main.js  4.13 KiB       0  [emitted]  main
+    main.js  2.63 KiB       0  [emitted]  main
     Entrypoint main = main.js
        [0] ./index.js 24 bytes {0} [built]
 Child
     Hash: 9995f1ffe455bd977f4e
     Time: Xms
       Asset      Size  Chunks             Chunk Names
-    main.js  4.13 KiB       0  [emitted]  main
+    main.js  2.63 KiB       0  [emitted]  main
     Entrypoint main = main.js
        [0] ./index.js 24 bytes {0} [built]
