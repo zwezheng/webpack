@@ -1486,6 +1486,10 @@
             }
           ]
         },
+        "runtimeChunk": {
+          "description": "Create an additional chunk which contains only the webpack runtime and chunk hash maps",
+          "type": "boolean"
+        },
         "noEmitOnErrors": {
           "description": "Avoid emitting assets when errors occur",
           "type": "boolean"
