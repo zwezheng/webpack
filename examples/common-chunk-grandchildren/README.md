@@ -272,10 +272,11 @@ module.exports = {
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
 /******/ 	jsonpArray = jsonpArray.slice();
 /******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -429,13 +430,13 @@ module.exports = function() {
 
 ```
 Hash: 0a1b2c3d4e5f6a7b8c9d
-Version: webpack 4.0.0-alpha.4
+Version: webpack next
       Asset       Size  Chunks             Chunk Names
 0.output.js  340 bytes       0  [emitted]  
 1.output.js  549 bytes       1  [emitted]  
 2.output.js  414 bytes       2  [emitted]  
 3.output.js  414 bytes       3  [emitted]  
-  output.js   7.48 KiB       4  [emitted]  main
+  output.js   7.53 KiB       4  [emitted]  main
 Entrypoint main = output.js
 chunk    {0} 0.output.js 72 bytes <{1}> <{4}> ={3}= ={2}= [rendered] split chunk
     > [2] ./pageB.js 3:1-6:3
@@ -467,7 +468,7 @@ chunk    {4} output.js (main) 261 bytes >{0}< >{2}< >{1}< [entry] [rendered]
 
 ```
 Hash: 0a1b2c3d4e5f6a7b8c9d
-Version: webpack 4.0.0-alpha.4
+Version: webpack next
       Asset       Size  Chunks             Chunk Names
 0.output.js  133 bytes       0  [emitted]  
 1.output.js  198 bytes       1  [emitted]  

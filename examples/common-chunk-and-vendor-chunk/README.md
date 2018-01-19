@@ -67,7 +67,7 @@ module.exports = {
 # dist/vendor.js
 
 ``` javascript
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
 /***/ 1:
 /*!*********************************!*\
@@ -97,7 +97,7 @@ module.exports = "vendor2";
 # dist/common.js
 
 ``` javascript
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
 /***/ 3:
 /*!*********************!*\
@@ -163,7 +163,7 @@ module.exports = "utility3";
 /******/ 	};
 /******/ 	function checkDeferredModules() {
 /******/ 		var result;
-/******/ 		for(i = 0; i < deferredModules.length; i++) {
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
 /******/ 			var deferredModule = deferredModules[i];
 /******/ 			var fullfilled = true;
 /******/ 			for(var j = 1; j < deferredModule.length; j++) {
@@ -251,10 +251,11 @@ module.exports = "utility3";
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
 /******/ 	jsonpArray = jsonpArray.slice();
 /******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// add entry module to deferred list
@@ -335,7 +336,7 @@ module.exports = "utility1";
 /******/ 	};
 /******/ 	function checkDeferredModules() {
 /******/ 		var result;
-/******/ 		for(i = 0; i < deferredModules.length; i++) {
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
 /******/ 			var deferredModule = deferredModules[i];
 /******/ 			var fullfilled = true;
 /******/ 			for(var j = 1; j < deferredModule.length; j++) {
@@ -423,10 +424,11 @@ module.exports = "utility1";
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
 /******/ 	jsonpArray = jsonpArray.slice();
 /******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// add entry module to deferred list
@@ -493,7 +495,7 @@ module.exports = "pageB";
 /******/ 	};
 /******/ 	function checkDeferredModules() {
 /******/ 		var result;
-/******/ 		for(i = 0; i < deferredModules.length; i++) {
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
 /******/ 			var deferredModule = deferredModules[i];
 /******/ 			var fullfilled = true;
 /******/ 			for(var j = 1; j < deferredModule.length; j++) {
@@ -581,14 +583,15 @@ module.exports = "pageB";
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
 /******/ 	jsonpArray = jsonpArray.slice();
 /******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([7,3]);
+/******/ 	deferredModules.push([7,4]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -618,15 +621,15 @@ module.exports = "pageC";
 
 ```
 Hash: 0a1b2c3d4e5f6a7b8c9d
-Version: webpack 4.0.0-alpha.4
+Version: webpack next
     Asset       Size  Chunks             Chunk Names
- pageA.js   5.54 KiB       0  [emitted]  pageA
- pageB.js   5.35 KiB       1  [emitted]  pageB
- pageC.js   5.29 KiB       2  [emitted]  pageC
-common.js  466 bytes       3  [emitted]  common
-vendor.js  536 bytes       4  [emitted]  vendor
-Entrypoint pageA = common.js vendor.js pageA.js
-Entrypoint pageB = common.js vendor.js pageB.js
+ pageA.js    5.6 KiB       0  [emitted]  pageA
+ pageB.js    5.4 KiB       1  [emitted]  pageB
+ pageC.js   5.34 KiB       2  [emitted]  pageC
+vendor.js  536 bytes       3  [emitted]  vendor
+common.js  466 bytes       4  [emitted]  common
+Entrypoint pageA = vendor.js common.js pageA.js
+Entrypoint pageB = vendor.js common.js pageB.js
 Entrypoint pageC = common.js pageC.js
 chunk    {0} pageA.js (pageA) 170 bytes ={3}= ={4}= [entry] [rendered]
     > ./pageA pageA
@@ -638,57 +641,57 @@ chunk    {1} pageB.js (pageB) 142 bytes ={3}= ={4}= [entry] [rendered]
     > ./pageB pageB
     [4] ./pageB.js 142 bytes {1} [built]
         single entry ./pageB  pageB
-chunk    {2} pageC.js (pageC) 105 bytes ={3}= [entry] [rendered]
+chunk    {2} pageC.js (pageC) 105 bytes ={4}= [entry] [rendered]
     > ./pageC pageC
     [7] ./pageC.js 105 bytes {2} [built]
         single entry ./pageC  pageC
-chunk    {3} common.js (common) 56 bytes ={2}= ={4}= ={1}= ={0}= [initial] [rendered] split chunk (name: common)
-    > ./pageC pageC
-    > ./pageB pageB
-    > ./pageA pageA
-    [3] ./utility2.js 28 bytes {3} [built]
-        cjs require ./utility2 [0] ./pageA.js 3:15-36
-        cjs require ./utility2 [4] ./pageB.js 2:15-36
-        cjs require ./utility2 [7] ./pageC.js 1:15-36
-    [6] ./utility3.js 28 bytes {3} [built]
-        cjs require ./utility3 [4] ./pageB.js 3:15-36
-        cjs require ./utility3 [7] ./pageC.js 2:15-36
-chunk    {4} vendor.js (vendor) 54 bytes ={3}= ={0}= ={1}= [initial] [rendered] split chunk (cache group: vendor) (name: vendor)
+chunk    {3} vendor.js (vendor) 54 bytes ={4}= ={0}= ={1}= [initial] [rendered] split chunk (cache group: vendor) (name: vendor)
     > ./pageA pageA
     > ./pageB pageB
     2 modules
+chunk    {4} common.js (common) 56 bytes ={2}= ={3}= ={1}= ={0}= [initial] [rendered] split chunk (name: common)
+    > ./pageC pageC
+    > ./pageB pageB
+    > ./pageA pageA
+    [3] ./utility2.js 28 bytes {4} [built]
+        cjs require ./utility2 [0] ./pageA.js 3:15-36
+        cjs require ./utility2 [4] ./pageB.js 2:15-36
+        cjs require ./utility2 [7] ./pageC.js 1:15-36
+    [6] ./utility3.js 28 bytes {4} [built]
+        cjs require ./utility3 [4] ./pageB.js 3:15-36
+        cjs require ./utility3 [7] ./pageC.js 2:15-36
 ```
 
 ## Production mode
 
 ```
 Hash: 0a1b2c3d4e5f6a7b8c9d
-Version: webpack 4.0.0-alpha.4
+Version: webpack next
     Asset       Size  Chunks             Chunk Names
-vendor.js  134 bytes       0  [emitted]  vendor
-common.js  132 bytes       1  [emitted]  common
+common.js  132 bytes       0  [emitted]  common
+vendor.js  134 bytes       1  [emitted]  vendor
  pageC.js    1.1 KiB       2  [emitted]  pageC
  pageB.js   1.11 KiB       3  [emitted]  pageB
- pageA.js   1.14 KiB       4  [emitted]  pageA
-Entrypoint pageA = common.js vendor.js pageA.js
-Entrypoint pageB = common.js vendor.js pageB.js
+ pageA.js   1.15 KiB       4  [emitted]  pageA
+Entrypoint pageA = vendor.js common.js pageA.js
+Entrypoint pageB = vendor.js common.js pageB.js
 Entrypoint pageC = common.js pageC.js
-chunk    {0} vendor.js (vendor) 54 bytes ={1}= ={4}= ={3}= [initial] [rendered] split chunk (cache group: vendor) (name: vendor)
-    > ./pageA pageA
-    > ./pageB pageB
-    2 modules
-chunk    {1} common.js (common) 56 bytes ={2}= ={0}= ={3}= ={4}= [initial] [rendered] split chunk (name: common)
+chunk    {0} common.js (common) 56 bytes ={2}= ={1}= ={3}= ={4}= [initial] [rendered] split chunk (name: common)
     > ./pageC pageC
     > ./pageB pageB
     > ./pageA pageA
-    [0] ./utility2.js 28 bytes {1} [built]
+    [0] ./utility2.js 28 bytes {0} [built]
         cjs require ./utility2 [2] ./pageC.js 1:15-36
         cjs require ./utility2 [4] ./pageB.js 2:15-36
         cjs require ./utility2 [7] ./pageA.js 3:15-36
-    [1] ./utility3.js 28 bytes {1} [built]
+    [1] ./utility3.js 28 bytes {0} [built]
         cjs require ./utility3 [2] ./pageC.js 2:15-36
         cjs require ./utility3 [4] ./pageB.js 3:15-36
-chunk    {2} pageC.js (pageC) 105 bytes ={1}= [entry] [rendered]
+chunk    {1} vendor.js (vendor) 54 bytes ={0}= ={4}= ={3}= [initial] [rendered] split chunk (cache group: vendor) (name: vendor)
+    > ./pageA pageA
+    > ./pageB pageB
+    2 modules
+chunk    {2} pageC.js (pageC) 105 bytes ={0}= [entry] [rendered]
     > ./pageC pageC
     [2] ./pageC.js 105 bytes {2} [built]
         single entry ./pageC  pageC

@@ -2,7 +2,9 @@ This example shows how to use multiple entry points with a commons chunk.
 
 In this example you have two (HTML) pages `pageA` and `pageB`. You want to create individual bundles for each page. In addition to this you want to create a shared bundle that contains all modules used in both pages (assuming there are many/big modules in common). The pages also use Code Splitting to load a less used part of the features on demand.
 
-You can see how to define multiple entry points via the `entry` option and the required changes (`[name]`) in the `output` option. You can also see how to use the CommonsChunkPlugin.
+You can see how to define multiple entry points via the `entry` option.
+
+You can use 
 
 You can see the output files:
 
@@ -56,9 +58,14 @@ module.exports = {
 	},
 	optimization: {
 		splitChunks: {
-			name: "commons",
-			chunks: "initial",
-			minSize: 0
+			cacheGroups: {
+				commons: {
+					name: "commons",
+					chunks: "initial",
+					minChunks: 2,
+					minSize: 0
+				}
+			}
 		},
 		occurrenceOrder: true // To keep filename consistent between different modes (for example building only)
 	}
@@ -565,7 +572,7 @@ module.exports = function(msg) {
 
 ```
 Hash: 0a1b2c3d4e5f6a7b8c9d
-Version: webpack 4.0.0-alpha.4
+Version: webpack next
      Asset       Size  Chunks             Chunk Names
       0.js  363 bytes       0  [emitted]  
 commons.js  267 bytes       1  [emitted]  commons
@@ -580,7 +587,7 @@ chunk    {0} 0.js 91 bytes <{1}> <{2}> <{3}> [rendered]
         require.ensure item ./shared [2] ./pageB.js 2:0-5:2
         cjs require ./shared [2] ./pageB.js 3:14-33
         amd require ./shared [3] ./pageA.js 2:0-4:2
-chunk    {1} commons.js (commons) 26 bytes ={2}= ={3}= >{0}< [initial] [rendered] split chunk (name: commons)
+chunk    {1} commons.js (commons) 26 bytes ={2}= ={3}= >{0}< [initial] [rendered] split chunk (cache group: commons) (name: commons)
     > ./pageB pageB
     > ./pageA pageA
     [1] ./common.js 26 bytes {1} [built]
@@ -601,7 +608,7 @@ chunk    {3} pageA.js (pageA) 108 bytes ={1}= >{0}< [entry] [rendered]
 
 ```
 Hash: 0a1b2c3d4e5f6a7b8c9d
-Version: webpack 4.0.0-alpha.4
+Version: webpack next
      Asset       Size  Chunks             Chunk Names
       0.js  120 bytes       0  [emitted]  
 commons.js   95 bytes       1  [emitted]  commons
@@ -616,7 +623,7 @@ chunk    {0} 0.js 91 bytes <{1}> <{2}> <{3}> [rendered]
         require.ensure item ./shared [2] ./pageB.js 2:0-5:2
         cjs require ./shared [2] ./pageB.js 3:14-33
         amd require ./shared [3] ./pageA.js 2:0-4:2
-chunk    {1} commons.js (commons) 26 bytes ={2}= ={3}= >{0}< [initial] [rendered] split chunk (name: commons)
+chunk    {1} commons.js (commons) 26 bytes ={2}= ={3}= >{0}< [initial] [rendered] split chunk (cache group: commons) (name: commons)
     > ./pageB pageB
     > ./pageA pageA
     [1] ./common.js 26 bytes {1} [built]
