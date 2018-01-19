@@ -3,7 +3,7 @@ Child
     Hash: aa788836a27320e9e2c8
     Time: Xms
                              Asset       Size  Chunks             Chunk Names
-                            app.js   5.53 KiB       0  [emitted]  app
+                            app.js   5.58 KiB       0  [emitted]  app
     vendor.a86979cc789cd5f9d78f.js  619 bytes       1  [emitted]  vendor
     Entrypoint app = vendor.a86979cc789cd5f9d78f.js app.js
     [./constants.js] 87 bytes {1} [built]
@@ -15,7 +15,7 @@ Child
     Hash: 2a1426a570619ab0713a
     Time: Xms
                              Asset       Size  Chunks             Chunk Names
-                            app.js   5.54 KiB       0  [emitted]  app
+                            app.js    5.6 KiB       0  [emitted]  app
     vendor.a86979cc789cd5f9d78f.js  619 bytes       1  [emitted]  vendor
     Entrypoint app = vendor.a86979cc789cd5f9d78f.js app.js
     [./constants.js] 87 bytes {1} [built]

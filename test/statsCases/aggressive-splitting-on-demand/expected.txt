@@ -11,7 +11,7 @@ f4818881f9e5138ad8ac.js     1 KiB       1  [emitted]
 a28f1d7d7367daaaf00a.js     1 KiB       7  [emitted]  
 1c507089c2c8ceb9757d.js  1.94 KiB       8  [emitted]  
 9ac0014114101e5f7d2c.js  1.94 KiB    9, 1  [emitted]  
-f507739d37522e79688a.js  8.33 KiB      10  [emitted]  main
+f507739d37522e79688a.js  8.38 KiB      10  [emitted]  main
 Entrypoint main = f507739d37522e79688a.js
 chunk    {0} ba1a8dd27d611254d495.js 1.76 KiB <{10}> ={2}= ={3}= ={9}= ={7}= ={1}= [recorded] aggressive splitted
     > ./b ./d ./e ./f ./g ./h ./i ./j ./k [11] ./index.js 6:0-72

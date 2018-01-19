@@ -5,7 +5,7 @@ Time: Xms
            abd.js  277 bytes    1, 0  [emitted]  abd
           cir1.js  299 bytes       2  [emitted]  cir1
           cir2.js  299 bytes       3  [emitted]  cir2
-          main.js   7.75 KiB       4  [emitted]  main
+          main.js    7.8 KiB       4  [emitted]  main
 cir2 from cir1.js  359 bytes    5, 3  [emitted]  cir2 from cir1
          chunk.js  190 bytes    6, 7  [emitted]  chunk
       ac in ab.js  130 bytes       7  [emitted]  ac in ab

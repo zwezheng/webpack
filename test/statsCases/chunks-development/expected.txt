@@ -4,7 +4,7 @@ Time: Xms
 0.bundle.js  530 bytes       0  [emitted]  
 1.bundle.js  394 bytes       1  [emitted]  
 2.bundle.js  782 bytes       2  [emitted]  
-  bundle.js   7.54 KiB    main  [emitted]  main
+  bundle.js   7.58 KiB    main  [emitted]  main
 Entrypoint main = bundle.js
 chunk {main} bundle.js (main) 73 bytes >{0}< >{1}< [entry] [rendered]
     > ./index main

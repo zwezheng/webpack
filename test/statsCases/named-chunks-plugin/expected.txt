@@ -1,7 +1,7 @@
 Hash: 3f8973e2d9fcd47f4c6e
 Time: Xms
     Asset       Size  Chunks             Chunk Names
- entry.js   5.29 KiB   entry  [emitted]  entry
+ entry.js   5.34 KiB   entry  [emitted]  entry
 vendor.js  269 bytes  vendor  [emitted]  vendor
 Entrypoint entry = vendor.js entry.js
 [./entry.js] 72 bytes {entry} [built]
