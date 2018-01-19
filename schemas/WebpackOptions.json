@@ -1455,6 +1455,10 @@
                                 "type": "number",
                                 "minimum": 1
                               },
+                              "reuseExistingChunk": {
+                                "description": "Try to reuse existing chunk (with name) when it has matching modules",
+                                "type": "boolean"
+                              },
                               "name": {
                                 "description": "Give chunks for this cache group a name (chunks with equal name are merged)",
                                 "oneOf": [

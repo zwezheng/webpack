@@ -6,7 +6,7 @@ require.ensure([], function() {
 
 it("should have externals in main file", function() {
 	var a = require("./a");
-	a.main.should.containEql("require(\"external0\")");
+	a.vendor.should.containEql("require(\"external0\")");
 	a.main.should.containEql("require(\"external1\")");
 	a.main.should.containEql("require(\"external2\")");
 });

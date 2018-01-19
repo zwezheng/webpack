@@ -11,8 +11,13 @@ module.exports = {
 	externals: ["external0", "external1", "external2", "fs", "path"],
 	optimization: {
 		splitChunks: {
-			minSize: 1,
-			name: "vendor"
+			cacheGroups: {
+				vendor: {
+					test: "vendor",
+					name: "vendor",
+					enforce: true
+				}
+			}
 		}
 	},
 	node: {

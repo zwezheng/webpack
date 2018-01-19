@@ -8,8 +8,7 @@ module.exports = {
 	},
 	optimization: {
 		splitChunks: {
-			includeInitialChunks: true,
-			minSize: 1
+			minSize: 0
 		}
 	}
 };
