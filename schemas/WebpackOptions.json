@@ -322,6 +322,18 @@
             }
           ]
         },
+        "cssFilename": {
+          "description": "The filename of CSS chunks as relative path inside the `output.path` directory.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "instanceof": "Function"
+            }
+          ],
+          "absolutePath": false
+        },
         "chunkFilename": {
           "description": "The filename of non-entry chunks as relative path inside the `output.path` directory.",
           "anyOf": [
@@ -947,6 +959,7 @@
             "javascript/dynamic",
             "javascript/esm",
             "json",
+            "css/experimental",
             "webassembly/experimental"
           ]
         },
