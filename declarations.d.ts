@@ -37,7 +37,7 @@ declare module "@webassemblyjs/ast" {
 			ModuleExport?: (p: NodePath<ModuleExport>) => void;
 			Start?: (p: NodePath<Start>) => void;
 		}
-	);
+	): void;
 	export class NodePath<T> {
 		node: T;
 	}
@@ -48,13 +48,15 @@ declare module "@webassemblyjs/ast" {
 	export class Start extends Node {
 		index: Identifier;
 	}
+	export class ModuleImportDescription {
+		type: string;
+		valtype?: string;
+		id?: Identifier;
+		signature?: Signature;
+	}
 	export class ModuleImport extends Node {
 		module: string;
-		descr: {
-			type: string;
-			valtype: string;
-			id: string;
-		};
+		descr: ModuleImportDescription;
 		name: string;
 	}
 	export class ModuleExport extends Node {
